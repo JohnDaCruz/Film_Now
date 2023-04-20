@@ -10,7 +10,6 @@ export default function Page() {
   const movieApi = async () => {
     const { data: { results } } = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41ba433527c6290929ce704a876d3649&language=pt-BR&page=1')
     setMovie(results)
-    console.log(results)
   }
 
 
@@ -26,11 +25,11 @@ export default function Page() {
         <Image style={styles.img} source={require('../src/images/filmnow.png')} />
       </View>
 
-      <View>
+      <ScrollView>
         {movie.map((movie) =>
           <MovieCard {...movie} />
         )}
-      </View>
+      </ScrollView>
 
     </View >
   );
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    padding: 24,
+    paddingTop: 10,
     backgroundColor: '#100D0D'
   },
   text: {
