@@ -25,6 +25,10 @@ export default function Page() {
         <Image style={styles.img} source={require('../src/images/filmnow.png')} />
       </View>
 
+      <View style={styles.ViewMaisPopulares}>
+        <Text style={styles.TextMaisPopulares}>Mais Populares</Text>
+      </View>
+
       <ScrollView>
         {movie.map((movie) =>
           <MovieCard {...movie} />
@@ -40,16 +44,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     paddingTop: 10,
-    backgroundColor: '#100D0D'
+    backgroundColor: '#161616'
   },
   text: {
     fontSize: 20
   },
   img: {
-    width: 720,
-    height: 120,
+    width: 590,
+    height: 100,
     resizeMode: 'cover',
   },
-  scrollView: {
-  }
+  ViewMaisPopulares: {
+    padding:10
+  },
+  TextMaisPopulares: {
+    fontSize: 15,
+    color:'#fff',
+    fontWeight:'bold',
+
+  } 
 });

@@ -12,7 +12,7 @@ const MovieCard = (props) => {
 
             <View style={styles.viewTexts}>
                 <Text style={styles.text}>{props.title}</Text>
-                <Text style={styles.text}>{data.slice(-10,4)}</Text>
+                <Text style={styles.textData}>{data.slice(-10, 4)}</Text>
             </View>
 
         </View>
@@ -23,24 +23,30 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 25,
-        padding:20
+        marginBottom: 1,
+        padding: 20,
     },
     text: {
+        alignItems: 'flex-start',
         color: '#fff',
-        textAlign: 'center',
-        fontSize: 12,
-    },
-    viewTexts:{
-        flexDirection: 'column',
-        alignItems:'flex-start',
+        fontSize: 15,
         fontWeight: 'bold',
-        paddingHorizontal:10
+        width:139
+    },
+    textData: {
+        color: '#fff',
+        fontStyle: 'italic'
+    },
+    viewTexts: {
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        paddingHorizontal: 10,
+
     },
     image: {
-        width: 150,
+        width: 140,
         height: 210,
-        borderRadius:20
+        borderRadius: 20
     }
 })
 
