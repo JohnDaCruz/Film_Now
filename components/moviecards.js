@@ -3,12 +3,13 @@ import react from "react";
 
 const MovieCard = (props) => {
     const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
-    const data = props.release_date
+    const data = props.data
+    console.log(props.title, props.data, props.id)
     return (
 
         <View style={styles.container}>
 
-            <Image style={styles.image} source={{ uri: URL_IMAGE + props.poster_path }} />
+            <Image style={styles.image} source={{ uri: URL_IMAGE + props.img }} />
 
             <View style={styles.viewTexts}>
                 <Text style={styles.text}>{props.title}</Text>

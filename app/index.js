@@ -6,10 +6,14 @@ import MovieCard from "../components/moviecards";
 export default function Page() {
 
   const [movie, setMovie] = useState([])
+  const [genre, setGenre] = useState([])
+
 
   const movieApi = async () => {
     const { data: { results } } = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41ba433527c6290929ce704a876d3649&language=pt-BR&page=1')
+    const dataGenre = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=41ba433527c6290929ce704a876d3649&language=pt-BR')
     setMovie(results)
+    setGenre(dataGenre.data.genres)
   }
 
 
@@ -30,8 +34,14 @@ export default function Page() {
       </View>
 
       <ScrollView>
-        {movie.map((movie) =>
-          <MovieCard {...movie} />
+        {movie.map((movie, genre) =>
+          <MovieCard
+            title={movie.title}
+            data={movie.release_date}
+            img={movie.poster_path}
+            id={genre.id}
+            genre={genre.name}
+          />
         )}
       </ScrollView>
 
@@ -44,7 +54,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     paddingTop: 10,
-    backgroundColor: '#161616'
+    backgroundColor: '#0E0E0E'
   },
   text: {
     fontSize: 20
@@ -55,12 +65,12 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   ViewMaisPopulares: {
-    padding:10
+    padding: 10
   },
   TextMaisPopulares: {
     fontSize: 15,
-    color:'#fff',
-    fontWeight:'bold',
+    color: '#fff',
+    fontWeight: 'bold',
 
-  } 
+  }
 });
