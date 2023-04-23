@@ -6,14 +6,11 @@ import MovieCard from "../components/moviecards";
 export default function Page() {
 
   const [movie, setMovie] = useState([])
-  const [genre, setGenre] = useState([])
 
 
   const movieApi = async () => {
     const { data: { results } } = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41ba433527c6290929ce704a876d3649&language=pt-BR&page=1')
-    const dataGenre = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=41ba433527c6290929ce704a876d3649&language=pt-BR')
     setMovie(results)
-    setGenre(dataGenre.data.genres)
   }
 
 
@@ -34,13 +31,12 @@ export default function Page() {
       </View>
 
       <ScrollView>
-        {movie.map((movie, genre) =>
+        {(movie).map((movie) =>
           <MovieCard
             title={movie.title}
             data={movie.release_date}
             img={movie.poster_path}
-            id={genre.id}
-            genre={genre.name}
+            genre={movie.genre_ids}
           />
         )}
       </ScrollView>

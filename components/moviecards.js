@@ -1,18 +1,108 @@
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
-import react from "react";
+import react, { useEffect } from "react";
 
 const MovieCard = (props) => {
     const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
     const data = props.data
-    console.log(props.title, props.data, props.id)
+    const genre = props.genre
+    const genreNAMEnID = [
+        {
+            "id": 28,
+            "name": "Ação"
+        },
+        {
+            "id": 12,
+            "name": "Aventura"
+        },
+        {
+            "id": 16,
+            "name": "Animação"
+        },
+        {
+            "id": 35,
+            "name": "Comédia"
+        },
+        {
+            "id": 80,
+            "name": "Crime"
+        },
+        {
+            "id": 99,
+            "name": "Documentário"
+        },
+        {
+            "id": 18,
+            "name": "Drama"
+        },
+        {
+            "id": 10751,
+            "name": "Família"
+        },
+        {
+            "id": 14,
+            "name": "Fantasia"
+        },
+        {
+            "id": 36,
+            "name": "História"
+        },
+        {
+            "id": 27,
+            "name": "Terror"
+        },
+        {
+            "id": 10402,
+            "name": "Música"
+        },
+        {
+            "id": 9648,
+            "name": "Mistério"
+        },
+        {
+            "id": 10749,
+            "name": "Romance"
+        },
+        {
+            "id": 878,
+            "name": "Ficção científica"
+        },
+        {
+            "id": 10770,
+            "name": "Cinema TV"
+        },
+        {
+            "id": 53,
+            "name": "Thriller"
+        },
+        {
+            "id": 10752,
+            "name": "Guerra"
+        },
+        {
+            "id": 37,
+            "name": "Faroeste"
+        }
+    ]
+    //console.log(props.title, props.data, genre)
+
+    const genreConfirm = (genreNAMEnID, genre) => {
+        genreNAMEnID.find(e => {
+            if (e.id == genre) {
+                return console.log(e.name)
+            }
+        })
+    }
+
+    genreConfirm(genreNAMEnID, genre)
+
     return (
 
         <View style={styles.container}>
 
             <Image style={styles.image} source={{ uri: URL_IMAGE + props.img }} />
-
             <View style={styles.viewTexts}>
                 <Text style={styles.text}>{props.title}</Text>
+                <Text style={styles.text}>{props.genre}</Text>
                 <Text style={styles.textData}>{data.slice(-10, 4)}</Text>
             </View>
 
@@ -32,7 +122,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 15,
         fontWeight: 'bold',
-        width:139
+        width: 139
     },
     textData: {
         color: '#fff',
