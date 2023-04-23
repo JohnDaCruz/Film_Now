@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
-import react, { useEffect } from "react";
+import react, { useEffect, useState } from "react";
 
 const MovieCard = (props) => {
     const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
     const data = props.data
-    const genre = props.genre
-    const genreNAMEnID = [
+    const genreAPI = props.genre
+    const genreOBJ = [
         {
             "id": 28,
             "name": "Ação"
@@ -83,17 +83,22 @@ const MovieCard = (props) => {
             "name": "Faroeste"
         }
     ]
-    //console.log(props.title, props.data, genre)
+    const [genre, setGenre] = useState()
+    //console.log(props.title, props.data, genreAPI)
+    //console.log(genreOBJ,genreAPI)
 
-    const genreConfirm = (genreNAMEnID, genre) => {
-        genreNAMEnID.find(e => {
-            if (e.id == genre) {
-                return console.log(e.name)
-            }
-        })
-    }
-
-    genreConfirm(genreNAMEnID, genre)
+    useEffect(() => {
+        var i = 0
+        while (i <= genreAPI.length - 1) {
+            genreOBJ.filter(e => {
+                if (e.id == genreAPI[i]) {
+                    console.log(e.name)
+                    setGenre(e.name)
+                }
+            })
+            i++
+        }
+    }, [])
 
     return (
 
@@ -102,7 +107,7 @@ const MovieCard = (props) => {
             <Image style={styles.image} source={{ uri: URL_IMAGE + props.img }} />
             <View style={styles.viewTexts}>
                 <Text style={styles.text}>{props.title}</Text>
-                <Text style={styles.text}>{props.genre}</Text>
+                <Text>{genre}</Text>
                 <Text style={styles.textData}>{data.slice(-10, 4)}</Text>
             </View>
 
