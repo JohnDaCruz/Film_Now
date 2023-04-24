@@ -83,7 +83,7 @@ const MovieCard = (props) => {
             "name": "Faroeste"
         }
     ]
-    const [genre, setGenre] = useState()
+    const [genre, setGenre] = useState([])
     //console.log(props.title, props.data, genreAPI)
     //console.log(genreOBJ,genreAPI)
 
@@ -91,8 +91,7 @@ const MovieCard = (props) => {
         var i = 0
         while (i <= genreAPI.length - 1) {
             genreOBJ.filter(e => {
-                if (e.id == genreAPI[i]) {
-                    console.log(e.name)
+                if (e.id === genreAPI[i]) {
                     setGenre(e.name)
                 }
             })
@@ -107,7 +106,7 @@ const MovieCard = (props) => {
             <Image style={styles.image} source={{ uri: URL_IMAGE + props.img }} />
             <View style={styles.viewTexts}>
                 <Text style={styles.text}>{props.title}</Text>
-                <Text>{genre}</Text>
+                <Text style={styles.textGenre}>{genre}</Text>
                 <Text style={styles.textData}>{data.slice(-10, 4)}</Text>
             </View>
 
@@ -127,7 +126,15 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 15,
         fontWeight: 'bold',
-        width: 139
+        width: 139,
+        paddingBottom: 5
+    },
+    textGenre: {
+        alignItems: 'flex-start',
+        color: '#fff',
+        fontSize: 15,
+        width: 139,
+        paddingBottom: 5
     },
     textData: {
         color: '#fff',

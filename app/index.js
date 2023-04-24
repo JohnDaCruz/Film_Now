@@ -2,10 +2,14 @@ import { StyleSheet, Text, View, StatusBar, ScrollView, Image } from "react-nati
 import react, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "../components/moviecards";
+import { useRouter } from "expo-router";
+import { Pressable } from "react-native";
 
 export default function Page() {
-
+  //Criar um objeto com cada necessidade 
   const [movie, setMovie] = useState([])
+  const router = useRouter();
+  const title = movie.title
 
 
   const movieApi = async () => {
@@ -32,12 +36,17 @@ export default function Page() {
 
       <ScrollView>
         {(movie).map((movie) =>
-          <MovieCard
-            title={movie.title}
-            data={movie.release_date}
-            img={movie.poster_path}
-            genre={movie.genre_ids}
-          />
+          <Pressable onPress={() => router.push({
+            pathname: './screens/details',
+            params: { title: movie.title }
+          })}>
+            <MovieCard
+              title={movie.title}
+              data={movie.release_date}
+              img={movie.poster_path}
+              genre={movie.genre_ids}
+            />
+          </Pressable>
         )}
       </ScrollView>
 
