@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     imagemPerfil: {
         width: 100,
         height: 200,
-        borderRadius: 15
+        borderRadius: 10
     },
     textName: {
         fontSize: 12,

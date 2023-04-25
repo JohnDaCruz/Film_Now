@@ -35,7 +35,7 @@ const Details = () => {
                         <Text style={styles.overview}>{overview}</Text>
                     </View>
                 </View>
-                <Text style={{ fontSize: 20 }}>Elenco</Text>
+                <Text style={{ fontSize: 19, color: '#fff', marginLeft: 10, fontWeight: 'bold' }}>Elenco</Text>
 
                 <ScrollView horizontal={true} style={styles.scrollHorizontal}>
                     {(credit).map((credit) =>

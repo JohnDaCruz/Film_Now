@@ -7,11 +7,8 @@ import { AntDesign } from '@expo/vector-icons';
 
 
 export default function Page() {
-  //Criar um objeto com cada necessidade 
   const [movie, setMovie] = useState([])
   const router = useRouter();
-  const title = movie.title
-
 
   const movieApi = async () => {
     const { data: { results } } = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41ba433527c6290929ce704a876d3649&language=pt-BR&page=1')

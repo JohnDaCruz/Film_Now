@@ -84,8 +84,6 @@ const MovieCard = (props) => {
         }
     ]
     const [genre, setGenre] = useState([])
-    //console.log(props.title, props.data, genreAPI)
-    //console.log(genreOBJ,genreAPI)
 
     useEffect(() => {
         var i = 0
