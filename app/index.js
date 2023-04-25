@@ -46,7 +46,8 @@ export default function Page() {
                 image_background: movie.backdrop_path,
                 vote: movie.vote_average,
                 data: movie.release_data,
-                overview: movie.overview
+                overview: movie.overview,
+                film_id: movie.id,
               }
             })}>
             <MovieCard
