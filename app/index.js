@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, StatusBar, ScrollView, Image } from "react-native";
+import { StyleSheet, Text, View, StatusBar, ScrollView, Image, Pressable, TouchableOpacity } from "react-native";
 import react, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "../components/moviecards";
 import { useRouter } from "expo-router";
-import { Pressable } from "react-native";
+import { AntDesign } from '@expo/vector-icons';
+
 
 export default function Page() {
   //Criar um objeto com cada necessidade 
@@ -36,10 +37,18 @@ export default function Page() {
 
       <ScrollView>
         {(movie).map((movie) =>
-          <Pressable onPress={() => router.push({
-            pathname: './screens/details',
-            params: { title: movie.title }
-          })}>
+          <Pressable
+            key={movie.id}
+            onPress={() => router.push({
+              pathname: './screens/details',
+              params: {
+                title: movie.title,
+                image_background: movie.backdrop_path,
+                vote: movie.vote_average,
+                data: movie.release_data,
+                overview: movie.overview
+              }
+            })}>
             <MovieCard
               title={movie.title}
               data={movie.release_date}
@@ -50,6 +59,18 @@ export default function Page() {
         )}
       </ScrollView>
 
+      <View style={styles.tabNav}>
+
+        <TouchableOpacity>
+          <AntDesign name="home" size={30} color="white" />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <AntDesign name="search1" size={30} color="white" />
+        </TouchableOpacity>
+
+      </View>
+
     </View >
   );
 }
@@ -59,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     paddingTop: 10,
-    backgroundColor: '#0E0E0E'
+    backgroundColor: '#101010'
   },
   text: {
     fontSize: 20
@@ -76,6 +97,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#fff',
     fontWeight: 'bold',
-
+  },
+  tabNav: {
+    width: '100%',
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'row'
   }
 });

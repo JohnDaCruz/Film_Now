@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import react, { useEffect, useState } from "react";
 
 const MovieCard = (props) => {
-    const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
+    const URL_IMAGE = 'https://image.tmdb.org/t/p/original/'
     const data = props.data
     const genreAPI = props.genre
     const genreOBJ = [
