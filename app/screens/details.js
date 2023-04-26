@@ -9,7 +9,7 @@ import CastCards from '../../components/castcards';
 const Details = () => {
     const { title, image_background, overview, film_id } = useSearchParams()
     const URL_IMAGE = 'https://image.tmdb.org/t/p/original/'
-    const router = useRouter()
+    const router = useRouter();
     const [credit, setCredit] = useState([])
     const colors = [
         '#D21312',
@@ -71,15 +71,19 @@ const Details = () => {
 
             <View style={styles.tabNav}>
                 <TouchableOpacity onPress={() => router.back()}>
-                    <AntDesign name="home" size={30} color="white" />
+                    <AntDesign name="arrowleft" size={30} color="white" />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => router.push({
+                        pathname: './search'
+                    })}
+                >
                     <AntDesign name="search1" size={30} color="white" />
                 </TouchableOpacity>
             </View>
 
-        </View>
+        </View >
 
     )
 }
@@ -90,7 +94,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#101010'
-
     },
     text: {
         fontSize: 18,

@@ -15,7 +15,6 @@ export default function Page() {
     setMovie(results)
   }
 
-
   useEffect(() => {
     movieApi()
   }, [])
@@ -32,7 +31,8 @@ export default function Page() {
         <Text style={styles.TextMaisPopulares}>Mais Populares</Text>
       </View>
 
-      <ScrollView>
+      <ScrollView
+      >
         {(movie).map((movie) =>
           <Pressable
             key={movie.id}
@@ -63,7 +63,11 @@ export default function Page() {
           <AntDesign name="home" size={30} color="white" />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => router.push({
+            pathname: './screens/search'
+          })}
+        >
           <AntDesign name="search1" size={30} color="white" />
         </TouchableOpacity>
 
