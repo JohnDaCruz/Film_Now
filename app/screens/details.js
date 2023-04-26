@@ -11,7 +11,23 @@ const Details = () => {
     const URL_IMAGE = 'https://image.tmdb.org/t/p/original/'
     const router = useRouter()
     const [credit, setCredit] = useState([])
-    const colors = ['#D21312', '#070A52', '#FC2947', '#B3005E', '#FCE22A', '#6F1AB6', '#CF0A0A']
+    const colors = [
+        '#D21312',
+        '#070A52',
+        '#FC2947',
+        '#B3005E',
+        '#FCE22A',
+        '#6F1AB6',
+        '#CF0A0A',
+        '#0F3460',
+        '#3AB0FF',
+        '#F24C4C',
+        '#FF1818',
+        '#19282F',
+        '#121212',
+        '#EC255A',
+        '#297F87'
+    ]
     const colorsPick = Math.floor(Math.random() * colors.length)
 
     const movieApi = async () => {
