@@ -6,12 +6,13 @@ import { AntDesign } from '@expo/vector-icons';
 import axios from 'axios';
 import CastCards from '../../components/castcards';
 
-
 const Details = () => {
-    const { title, image_background, vote, data, overview, film_id } = useSearchParams()
+    const { title, image_background, overview, film_id } = useSearchParams()
     const URL_IMAGE = 'https://image.tmdb.org/t/p/original/'
     const router = useRouter()
     const [credit, setCredit] = useState([])
+    const colors = ['#D21312', '#070A52', '#FC2947', '#B3005E', '#FCE22A', '#6F1AB6', '#CF0A0A']
+    const colorsPick = Math.floor(Math.random() * colors.length)
 
     const movieApi = async () => {
         const { data: { cast } } = await axios.get(`https://api.themoviedb.org/3/movie/${film_id}/credits?api_key=41ba433527c6290929ce704a876d3649&language=pt-BR`)
@@ -19,13 +20,15 @@ const Details = () => {
     }
     useEffect(() => {
         movieApi()
+
     }, [])
+
 
     return (
         <View style={styles.container}>
             <ScrollView>
 
-                <StatusBar barStyle={'light'} backgroundColor={'#900'} />
+                <StatusBar barStyle={'light'} backgroundColor={colors[colorsPick]} />
                 <Image style={styles.img} source={{ uri: URL_IMAGE + image_background }} />
 
                 <View style={styles.mainView}>
@@ -35,7 +38,7 @@ const Details = () => {
                         <Text style={styles.overview}>{overview}</Text>
                     </View>
                 </View>
-                <Text style={{ fontSize: 19, color: '#fff', marginLeft: 10, fontWeight: 'bold' }}>Elenco</Text>
+                <Text style={{ fontSize: 15, color: '#fff', marginLeft: 10, fontWeight: 'bold' }}>Elenco</Text>
 
                 <ScrollView horizontal={true} style={styles.scrollHorizontal}>
                     {(credit).map((credit) =>
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
 
     },
     text: {
-        fontSize: 20,
+        fontSize: 18,
         color: '#fff',
         fontWeight: 'bold',
     },
@@ -83,12 +86,12 @@ const styles = StyleSheet.create({
         padding: 10
     },
     descricao: {
-        marginTop: 20
+        marginTop: 20,
     },
     overviewTitle: {
         color: '#fff',
         fontWeight: 'bold',
-        fontSize: 17,
+        fontSize: 14,
     },
     overview: {
         color: '#fff'
