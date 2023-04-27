@@ -26,6 +26,9 @@ const Search = () => {
                 style={styles.inputSearch}
                 onChangeText={(text) => setMovieName(text)}
                 value={movieName}
+                onSubmitEditing={() => axiosUrl()}
+                cursorColor={'#fff'}
+                textAlign='center'
             />
 
             <TouchableOpacity
@@ -60,8 +63,19 @@ const Search = () => {
                         </Pressable>
                     )
                 }
-            </ScrollView>
 
+            </ScrollView>
+            <View style={styles.tabNav}>
+
+                <TouchableOpacity onPress={() => router.back()}>
+                    <AntDesign name="arrowleft" size={30} color="white" />
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                    <AntDesign name="search1" size={30} color="white" />
+                </TouchableOpacity>
+
+            </View>
         </View>
     )
 }
@@ -77,17 +91,24 @@ const styles = StyleSheet.create({
     },
     inputSearch: {
         borderColor: '#fff',
-        width: '100%',
+        width: 300,
         height: 50,
-        borderWidth: 1,
-        borderRadius: 10,
+        borderBottomWidth: 1,
         marginTop: 40,
         color: '#fff',
-        padding: 15
+        padding: 15,
+        fontSize: 18,
     },
     icon: {
         position: 'absolute',
         marginTop: 60,
         right: 16,
+    },
+    tabNav: {
+        width: '100%',
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        flexDirection: 'row'
     }
 })
