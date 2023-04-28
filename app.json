@@ -5,6 +5,14 @@
       "bundler": "metro"
     },
     "name": "tmdb",
-    "slug": "tmdb"
+    "slug": "tmdb",
+    "extra": {
+      "eas": {
+        "projectId": "14eaea2a-6bb9-4d8d-958e-f785a587dd30"
+      }
+    },
+    "android": {
+      "package": "com.jjadam.tmdb"
+    }
   }
 }
