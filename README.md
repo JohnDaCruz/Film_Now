@@ -13,10 +13,10 @@ O Film Now é um aplicativo desenvolvido em React Native e JavaScript que permit
     Os usuários podem pesquisar filmes pelo títuloO aplicativo exibe uma lista de filmes correspondentes à pesquisa realizada, permitindo aos usuários explorar várias opções.
 
 - #### Detalhes do Filme: 
-    Ao selecionar um filme na lista de resultados, o usuário é levado a uma tela com informações detalhadas. Isso inclui sinopse, elenco principal, gêneros e outras informações relevantes.
+    Ao selecionar um filme na lista de resultados, o usuário é levado a uma tela com informações detalhadas. Isso inclui sinopse e elenco principal. **->(Outras informções ainda serão ADDs)**
 
 - #### Interface Intuitiva: 
-    O Movie Describer foi projetado com uma interface amigável e intuitiva, proporcionando uma experiência de usuário agradável.
+    O Film Now foi projetado com uma interface amigável e intuitiva, proporcionando uma experiência de usuário agradável.
 
 ## Autor
 
