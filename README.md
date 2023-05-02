@@ -17,6 +17,9 @@ O Film Now é um aplicativo desenvolvido em React Native e JavaScript que permit
 
 - #### Interface Intuitiva: 
     O Film Now foi projetado com uma interface amigável e intuitiva, proporcionando uma experiência de usuário agradável.
+    
+![WhatsApp Image 2023-04-28 at 13 22 12](https://user-images.githubusercontent.com/102554786/235737743-f4b313f2-305f-43fa-a1d7-fdb8e15efd62.jpeg)
+
 
 ## Autor
 
