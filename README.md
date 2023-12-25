@@ -21,5 +21,4 @@ O Film Now é um aplicativo desenvolvido em React Native e JavaScript que permit
 ## Autor
 
 - [@JohnDaCruz](https://github.com/JohnDaCruz)
-- [Expo](https://docs.expo.dev/)
 
